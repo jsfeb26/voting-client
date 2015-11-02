@@ -4,7 +4,7 @@ http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html
 
 ## Setup
 ```
-git clone 
+git clone https://github.com/jsfeb26/voting-client.git
 cd voting-client
 npm install
 ```
