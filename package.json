@@ -1,0 +1,25 @@
+{
+  "name": "voting-client",
+  "version": "0.0.1",
+  "description": "React and Redux Client for the voting-server  http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsfeb26/voting-client.git"
+  },
+  "author": "Jason Stinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsfeb26/voting-client/issues"
+  },
+  "homepage": "https://github.com/jsfeb26/voting-client#readme",
+  "devDependencies": {
+    "babel-core": "^6.0.15",
+    "babel-loader": "^6.0.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
+  }
+}
