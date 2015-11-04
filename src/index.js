@@ -8,6 +8,6 @@ const pair = ['Trainspotting', '28 Days Later'];
 // the component takes a pair of entries as props
 // it is a pure component and doesn't care where the data comes from
 ReactDOM.render(
-  <Voting pair={pair} />,
+  <Voting pair={pair} hasVoted="Trainspotting" />,
   document.getElementById('app')
 );
