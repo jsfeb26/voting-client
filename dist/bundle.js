@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2f11b6c30c4ba513e76e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1cdbd6d2b10551bfb65c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -9524,9 +9524,30 @@
 
 	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(125); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	console.log('I am alive!');
+	'use strict';
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(229); if (makeExportsHot(module, __webpack_require__(125))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(125);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(229);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _componentsVoting = __webpack_require__(230);
+
+	var _componentsVoting2 = _interopRequireDefault(_componentsVoting);
+
+	var pair = ['Trainspotting', '28 Days Later'];
+
+	// mount voting component to #div
+	// the component takes a pair of entries as props
+	// it is a pure component and doesn't care where the data comes from
+	_reactDom2['default'].render(_react2['default'].createElement(_componentsVoting2['default'], { pair: pair }), document.getElementById('app'));
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(231); if (makeExportsHot(module, __webpack_require__(125))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ },
@@ -29516,8 +29537,64 @@
 
 	'use strict';
 
-	var isReactClassish = __webpack_require__(230),
-	    isReactElementish = __webpack_require__(231);
+	module.exports = __webpack_require__(127);
+
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(125); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _react = __webpack_require__(125);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	exports["default"] = _react2["default"].createClass({
+	  displayName: "Voting",
+
+	  getPair: function getPair() {
+	    return this.props.pair || [];
+	  },
+	  render: function render() {
+	    return _react2["default"].createElement(
+	      "div",
+	      { className: "voting" },
+	      this.getPair().map(function (entry) {
+	        return _react2["default"].createElement(
+	          "button",
+	          { key: entry },
+	          _react2["default"].createElement(
+	            "h1",
+	            null,
+	            entry
+	          )
+	        );
+	      })
+	    );
+	  }
+	});
+	module.exports = exports["default"];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(231); if (makeExportsHot(module, __webpack_require__(125))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Voting.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var isReactClassish = __webpack_require__(232),
+	    isReactElementish = __webpack_require__(233);
 
 	function makeExportsHot(m, React) {
 	  if (isReactElementish(m.exports, React)) {
@@ -29571,7 +29648,7 @@
 
 
 /***/ },
-/* 230 */
+/* 232 */
 /***/ function(module, exports) {
 
 	function hasRender(Class) {
@@ -29621,10 +29698,10 @@
 	module.exports = isReactClassish;
 
 /***/ },
-/* 231 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isReactClassish = __webpack_require__(230);
+	var isReactClassish = __webpack_require__(232);
 
 	function isReactElementish(obj, React) {
 	  if (!obj) {
