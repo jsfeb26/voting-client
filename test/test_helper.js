@@ -14,7 +14,7 @@ global.window = win;
 // take all the properties that the jsdom window object cointains
 // and hoist them to the Node.js global object
 // this allows the properties provided by the window to be used without the window
-Objects.keys(window).forEach((key) => {
+Object.keys(window).forEach((key) => {
   if (!(key in global)) {
     global[key] = window[key];
   }
