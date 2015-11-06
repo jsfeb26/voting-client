@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a588665c19e704a179fb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c1e6a37322a7bf65c9d6"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -9548,11 +9548,16 @@
 
 	var _componentsVoting2 = _interopRequireDefault(_componentsVoting);
 
+	var _componentsResults = __webpack_require__(287);
+
+	var _componentsResults2 = _interopRequireDefault(_componentsResults);
+
 	var pair = ['Trainspotting', '28 Days Later'];
 
 	var routes = _react2['default'].createElement(
 	  _reactRouter.Route,
 	  { component: _componentsApp2['default'] },
+	  _react2['default'].createElement(_reactRouter.Route, { path: '/results', component: _componentsResults2['default'] }),
 	  _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _componentsVoting2['default'] })
 	);
 
@@ -33935,6 +33940,7 @@
 	var _immutable = __webpack_require__(277);
 
 	var pair = _immutable.List.of('Trainspotting', '28 Days Later');
+	var tally = (0, _immutable.Map)({ 'Trainspotting': 5, '28 Days Later': 4 });
 
 	// this component does nothing except render its child components
 	// and it expected to be given in as the 'children' prop
@@ -33945,7 +33951,10 @@
 	  displayName: 'App',
 
 	  render: function render() {
-	    return _react2['default'].cloneElement(this.props.children, { pair: pair });
+	    return _react2['default'].cloneElement(this.props.children, {
+	      pair: pair,
+	      tally: tally
+	    });
 	  }
 	});
 	module.exports = exports['default'];
@@ -39291,6 +39300,131 @@
 	module.exports = exports['default'];
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(278); if (makeExportsHot(module, __webpack_require__(125))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Vote.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 287 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(125); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(125);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactAddonsPureRenderMixin = __webpack_require__(282);
+
+	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
+
+	var _Winner = __webpack_require__(285);
+
+	var _Winner2 = _interopRequireDefault(_Winner);
+
+	var _Tally = __webpack_require__(288);
+
+	var _Tally2 = _interopRequireDefault(_Tally);
+
+	exports['default'] = _react2['default'].createClass({
+	  displayName: 'Results',
+
+	  mixins: [_reactAddonsPureRenderMixin2['default']],
+
+	  getPair: function getPair() {
+	    return this.props.pair || [];
+	  },
+	  render: function render() {
+	    var _this = this;
+
+	    return this.props.winner ? _react2['default'].createElement(_Winner2['default'], { ref: 'winner', winner: this.props.winner }) : _react2['default'].createElement(
+	      'div',
+	      { className: 'results' },
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'tally' },
+	        this.getPair().map(function (entry) {
+	          return _react2['default'].createElement(_Tally2['default'], { entry: entry, tally: _this.props.tally });
+	        })
+	      ),
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'management' },
+	        _react2['default'].createElement(
+	          'button',
+	          { ref: 'next',
+	            className: 'next',
+	            onClick: this.props.next },
+	          'Next'
+	        )
+	      )
+	    );
+	  }
+	});
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(278); if (makeExportsHot(module, __webpack_require__(125))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Results.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
+
+/***/ },
+/* 288 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {/* REACT HOT LOADER */ if (true) { (function () { var ReactHotAPI = __webpack_require__(62), RootInstanceProvider = __webpack_require__(70), ReactMount = __webpack_require__(72), React = __webpack_require__(125); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(125);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactAddonsPureRenderMixin = __webpack_require__(282);
+
+	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
+
+	exports['default'] = _react2['default'].createClass({
+	  displayName: 'Tally',
+
+	  mixins: [_reactAddonsPureRenderMixin2['default']],
+
+	  getVotes: function getVotes(entry) {
+	    if (this.props.tally && this.props.tally.has(entry)) {
+	      return this.props.tally.get(entry);
+	    }
+	    return 0;
+	  },
+	  render: function render() {
+	    return _react2['default'].createElement(
+	      'div',
+	      { key: this.props.entry, className: 'entry' },
+	      _react2['default'].createElement(
+	        'h1',
+	        null,
+	        this.props.entry
+	      ),
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'voteCount' },
+	        this.getVotes(this.props.entry)
+	      )
+	    );
+	  }
+	});
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (true) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(278); if (makeExportsHot(module, __webpack_require__(125))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Tally.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }
