@@ -37,7 +37,7 @@ const routes = <Route component={App}>
 // we plug in the route table into it by passing it in as a child component
 ReactDOM.render(
   <Provider store={store}>
-    <Router>{routes}</Router>,
-  </Provider>
+    <Router>{routes}</Router>
+  </Provider>,
   document.getElementById('app')
 );
