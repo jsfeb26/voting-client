@@ -19,3 +19,9 @@ Or to watch tests:
 ```
 npm run test:watch
 ```
+
+## To Run
+```
+webpack-dev-server
+```
+Then browse to localhost:8080
