@@ -13,6 +13,10 @@ export default React.createClass({
   hasVotedFor: function(entry) {
     return this.props.hasVoted === entry;
   },
+
+  // vote function on the props is passed from the voting function when
+  // we pass the aciton creators to the connect
+  // clicking vote will call the vote action_creator
   render: function() {
     return <div className="voting">
       {this.getPair().map(entry =>

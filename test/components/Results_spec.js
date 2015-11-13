@@ -50,4 +50,3 @@ describe('Results', () => {
     expect(winner.textContent).to.contain('Trainspotting');
   });
 });
-
