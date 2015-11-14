@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router, {Route} from 'react-router';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import io from 'socket.io-client';
 import reducer from './reducer';
 import { setState } from './action_creators';
+import remoteActionMiddleware from './remote_action_middleware';
 import App from './components/App';
 import { VotingContainer } from './components/Voting';
 import { ResultsContainer } from './components/Results';
-
-const store = createStore(reducer);
 
 // using the io function to connect ot the socket.io sdrver that's running
 // on the same hostname on port 8090
@@ -20,9 +19,15 @@ socket.on('state', state => {
   store.dispatch(setState(state));
 });
 
+const createStoreWithMiddleWare = applyMiddleware(
+  remoteActionMiddleware(socket)
+)(createStore);
+
+const store = createStoreWithMiddleWare(reducer);
+
 const routes = <Route component={App}>
-                <Route path="/results" component={ResultsContainer} />
                 <Route path="/" component={VotingContainer} />
+                <Route path="/results" component={ResultsContainer} />
               </Route>;
 
 // mount voting component to #div
